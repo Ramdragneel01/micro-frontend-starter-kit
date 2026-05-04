@@ -1,47 +1,47 @@
 :root {
-  color-scheme: light;
-  font-family: "Segoe UI", Tahoma, sans-serif;
+    color-scheme: light;
+    font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
 body {
-  margin: 0;
-  background: radial-gradient(circle at top right, #e0f2fe 0%, #f8fafc 45%, #eef2ff 100%);
-  color: #0f172a;
+    margin: 0;
+    background: radial-gradient(circle at top right, #e0f2fe 0%, #f8fafc 45%, #eef2ff 100%);
+    color: #0f172a;
 }
 
 .shell {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 2rem;
+    margin: 0;
+    font-size: 2rem;
 }
 
 header p {
-  margin-top: 8px;
-  color: #334155;
+    margin-top: 8px;
+    color: #334155;
 }
 
 .grid {
-  margin-top: 20px;
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-top: 20px;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .card {
-  border-radius: 14px;
-  border: 1px solid #cbd5e1;
-  background: #ffffffd9;
-  backdrop-filter: blur(2px);
-  padding: 14px;
-  box-shadow: 0 8px 22px #0f172a14;
+    border-radius: 14px;
+    border: 1px solid #cbd5e1;
+    background: #ffffffd9;
+    backdrop-filter: blur(2px);
+    padding: 14px;
+    box-shadow: 0 8px 22px #0f172a14;
 }
 
 .card h2 {
-  margin: 0 0 10px;
-  font-size: 1.05rem;
+    margin: 0 0 10px;
+    font-size: 1.05rem;
 }
