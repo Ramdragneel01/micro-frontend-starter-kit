@@ -1,0 +1,23 @@
+flowchart LR
+  subgraph Browser
+    User[User]
+    Shell[Shell App\n:3000]
+  end
+
+  subgraph Remotes
+    Chat[AI Chat Widget\n:3001]
+    Obs[Observability Widget\n:3002]
+    Cost[Cost Widget\n:3003]
+  end
+
+  subgraph Shared
+    Core[@mfe/widget-core]
+  end
+
+  User --> Shell
+  Shell --> Chat
+  Shell --> Obs
+  Shell --> Cost
+  Chat --> Core
+  Obs --> Core
+  Cost --> Core

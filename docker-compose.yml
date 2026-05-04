@@ -1,0 +1,30 @@
+services:
+  shell:
+    build: .
+    image: ghcr.io/ramdragneel01/micro-frontend-starter-kit:dev
+    container_name: mfe-shell
+    ports:
+      - "3000:3000"
+    environment:
+      MFE_SHELL_PORT: 3000
+
+  ai-chat-widget:
+    image: ghcr.io/ramdragneel01/micro-frontend-starter-kit:dev
+    container_name: mfe-chat-widget
+    command: ["npx", "http-server", "dist/ai-chat-widget", "-p", "3001", "-s"]
+    ports:
+      - "3001:3001"
+
+  observability-widget:
+    image: ghcr.io/ramdragneel01/micro-frontend-starter-kit:dev
+    container_name: mfe-observability-widget
+    command: ["npx", "http-server", "dist/observability-widget", "-p", "3002", "-s"]
+    ports:
+      - "3002:3002"
+
+  cost-widget:
+    image: ghcr.io/ramdragneel01/micro-frontend-starter-kit:dev
+    container_name: mfe-cost-widget
+    command: ["npx", "http-server", "dist/cost-widget", "-p", "3003", "-s"]
+    ports:
+      - "3003:3003"

@@ -1,0 +1,59 @@
+{
+  "name": "micro-frontend-starter-kit",
+  "version": "0.1.0",
+  "description": "Webpack 5 Module Federation starter kit with a shell app and three AI-focused widgets.",
+  "private": true,
+  "license": "MIT",
+  "author": "Ram Prakash Dhulipudi <ramprakashdhulipudi@gmail.com>",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n SHELL,CHAT,OBS,COST -c blue,green,magenta,cyan \"npm:dev:shell\" \"npm:dev:chat\" \"npm:dev:obs\" \"npm:dev:cost\"",
+    "dev:shell": "webpack serve --config apps/shell/webpack.config.js --mode development",
+    "dev:chat": "webpack serve --config apps/ai-chat-widget/webpack.config.js --mode development",
+    "dev:obs": "webpack serve --config apps/observability-widget/webpack.config.js --mode development",
+    "dev:cost": "webpack serve --config apps/cost-widget/webpack.config.js --mode development",
+    "build": "npm run clean && npm run build:shell && npm run build:chat && npm run build:obs && npm run build:cost",
+    "build:shell": "webpack --config apps/shell/webpack.config.js --mode production",
+    "build:chat": "webpack --config apps/ai-chat-widget/webpack.config.js --mode production",
+    "build:obs": "webpack --config apps/observability-widget/webpack.config.js --mode production",
+    "build:cost": "webpack --config apps/cost-widget/webpack.config.js --mode production",
+    "clean": "node scripts/clean.mjs",
+    "serve:shell": "node scripts/serve-shell.mjs",
+    "serve:chat": "http-server dist/ai-chat-widget -p 3001 -s",
+    "serve:obs": "http-server dist/observability-widget -p 3002 -s",
+    "serve:cost": "http-server dist/cost-widget -p 3003 -s",
+    "demo": "concurrently -k -n SHELL,CHAT,OBS,COST -c blue,green,magenta,cyan \"npm:serve:shell\" \"npm:serve:chat\" \"npm:serve:obs\" \"npm:serve:cost\"",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@mfe/widget-core": "0.1.0",
+    "express": "^4.21.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.8",
+    "@babel/preset-env": "^7.25.8",
+    "@babel/preset-react": "^7.25.7",
+    "@testing-library/jest-dom": "^6.6.2",
+    "@testing-library/react": "^16.0.1",
+    "@vitejs/plugin-react": "^4.3.2",
+    "@vitest/coverage-v8": "^2.1.8",
+    "babel-loader": "^9.2.1",
+    "concurrently": "^9.0.1",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "http-server": "^14.1.1",
+    "jsdom": "^25.0.1",
+    "style-loader": "^4.0.0",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.8",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
+  }
+}
